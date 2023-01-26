@@ -1,6 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { clock_icon, page_icon } from '../constants/icons'
+import appTheme from '../constants/theme'
 
 export default function Book(props) {
   return (
@@ -22,8 +23,9 @@ export default function Book(props) {
 
 const styles = StyleSheet.create({
   bookCover: {
-    width: 170,
-    height: 250,
+    width: 190,
+    height: 190 * (9 / 6),
+    borderRadius: 20,
   },
   infos: {
     flexDirection: 'row',
@@ -34,11 +36,16 @@ const styles = StyleSheet.create({
   info: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 6,
+    paddingHorizontal: 10,
   },
   infoIcon: {
     width: 20,
     height: 20,
-    marginEnd: 3,
+    marginEnd: 5,
+    tintColor: appTheme.COLORS.lightGray,
   },
-  infoText: {},
+  infoText: {
+    color: appTheme.COLORS.lightGray,
+  },
 })
