@@ -8,14 +8,15 @@ import {
 } from "react-native";
 import CategoryBook from "./CategoryBook";
 import { myBooks } from "../data/myBooks";
+import { categories } from "../data";
 import { COLORS } from "../constants";
 
 export default function Category(props) {
   return (
     <View style={styles.category}>
       <Text style={styles.categoryName}>{props.category.categoryName}</Text>
-      <ScrollView horizontal>
-        {myBooks.map((book, index) => (
+      <ScrollView>
+        {props.category.books.map((book, index) => (
           <CategoryBook key={index} book={book} />
         ))}
       </ScrollView>

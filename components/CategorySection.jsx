@@ -1,24 +1,39 @@
-import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Button,
+  FlatList,
+} from "react-native";
 import { categories } from "../data/categories";
 import Category from "./Category";
+import CategorySelector from "./CategorySelector";
+import { useState } from "react";
+import { COLORS } from "../constants";
 
 export default function CategorySection(props) {
+  const [categoryIndex, setCategoryIndex] = useState(1);
+  const category = categories.find((category) => {
+    return category.id == categoryIndex;
+  });
+
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Categories</Text>
-      </View>
-      <ScrollView horizontal>
-        {categories.map((category, index) => (
-          <Category key={index} category={category} />
-        ))}
-      </ScrollView>
+      <CategorySelector
+        changeFn={(id) => setCategoryIndex(id)}
+      ></CategorySelector>
+      <Text>{categoryIndex}</Text>
+      <Text>{category.categoryName}</Text>
+      <Category category={category}></Category>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: COLORS.gray,
+  },
   header: {
     display: "flex",
     flexDirection: "row",
