@@ -1,5 +1,7 @@
 import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { myBooks } from '../data/myBooks'
+import Book from './Book'
 
 export default function BookSection() {
   return (
@@ -9,6 +11,9 @@ export default function BookSection() {
         <Button title='See more' />
       </View>
       <ScrollView horizontal>
+        {myBooks.map((book, index) => (
+          <Book key={index} book={book} />
+        ))}
       </ScrollView>
     </View>
   )
