@@ -1,12 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
 
-export default function Book() {
+export default function Book(props) {
   return (
-    <View>
-      <Text>Book</Text>
-    </View>
+    <Pressable>
+      <Image style={styles.bookCover} source={props.book.bookCover} />
+    </Pressable>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  bookCover: {
+    width: 170,
+    height: 250,
+  },
+})
