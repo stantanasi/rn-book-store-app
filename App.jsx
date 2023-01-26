@@ -1,17 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, LogBox, Text, View, ScrollView } from 'react-native';
-import BookSection from './components/BookSection';
-import { COLORS } from './constants/theme'
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, LogBox, View, ScrollView } from "react-native";
+import BookSection from "./components/BookSection";
+import { COLORS } from "./constants/theme";
+import CategorySection from "./components/CategorySection";
 
 // Hide Error FlatList using inside ScrollView
-LogBox.ignoreLogs(['VirtualizedLists']);
-
+LogBox.ignoreLogs(["VirtualizedLists"]);
 
 export default function App() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.body}>
         <BookSection />
+        <CategorySection />
       </ScrollView>
       <StatusBar style="auto" />
     </View>
