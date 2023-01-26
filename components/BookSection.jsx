@@ -1,4 +1,4 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Book from './Book'
 import appTheme from '../constants/theme'
@@ -13,18 +13,17 @@ export default function BookSection() {
           <Text style={styles.headerSeeMore}>see more</Text>
         </Pressable>
       </View>
-      <ScrollView
+      <FlatList
         horizontal
+        data={myBooks}
         style={styles.books}
         contentContainerStyle={{ paddingHorizontal: appTheme.SIZES.padding }}
-      >
-        {myBooks.map((book, index) => (
-          <>
-            {index !== 0 && <View style={{ width: 12 }} />}
-            <Book book={book} />
-          </>
-        ))}
-      </ScrollView>
+        keyExtractor={(_, index) => index}
+        renderItem={({ item }) => (
+          <Book book={item} />
+        )}
+        ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
+      />
     </View>
   )
 }
