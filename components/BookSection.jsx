@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 export default function BookSection() {
@@ -8,6 +8,8 @@ export default function BookSection() {
         <Text style={styles.headerTitle}>My books</Text>
         <Button title='See more' />
       </View>
+      <ScrollView horizontal>
+      </ScrollView>
     </View>
   )
 }
