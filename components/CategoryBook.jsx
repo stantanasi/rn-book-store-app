@@ -33,11 +33,13 @@ export default function CategoryBook(props) {
             </View>
           </View>
           <View style={styles.genres}>
-            {props.book.genre.sort().map((genre) => (
+            {props.book.genre.sort().map((genre, index) => (
               <Text
+                key={index}
                 style={[styles.genre, {
                   backgroundColor: getGenreColor(genre) + '60',
                   color: getGenreColor(genre),
+                  marginStart: index !== 0 ? 10 : 0,
                 }]}
               >
                 {genre}
@@ -55,20 +57,25 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   bookCover: {
-    width: 170,
-    height: 250,
+    width: 120,
+    height: 120 * (9 / 6),
+    borderRadius: 20,
   },
   infoBox: {
-    margin: 5,
+    padding: 14,
   },
   bookName: {
     color: theme.COLORS.white,
+    ...theme.FONTS.h2,
+    fontWeight: 'bold',
   },
   author: {
     color: theme.COLORS.lightGray,
+    marginTop: 2,
   },
   infos: {
     flexDirection: "row",
+    marginTop: 16,
   },
   info: {
     flexDirection: "row",
@@ -86,7 +93,10 @@ const styles = StyleSheet.create({
   genres: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    marginTop: 20,
   },
   genre: {
+    padding: 7,
+    borderRadius: 4,
   },
 });
