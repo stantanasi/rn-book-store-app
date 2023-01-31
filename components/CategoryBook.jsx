@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   infoBox: {
-    padding: 14,
+    paddingHorizontal: 14,
     flexShrink: 1,
   },
   bookName: {
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
   genre: {
     padding: 7,
     borderRadius: 4,
-    margin: 5,
+    marginRight: 5,
+    marginBottom: 5,
   },
 });
