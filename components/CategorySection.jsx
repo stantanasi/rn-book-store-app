@@ -34,14 +34,4 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.gray,
   },
-  header: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#123456",
-  },
-  headerTitle: {
-    flex: 1,
-    color: "white",
-  },
 });

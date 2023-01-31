@@ -8,6 +8,12 @@ export default function CategoryBook(props) {
         <Image style={styles.bookCover} source={props.book.bookCover} />
         <View style={styles.infoBox}>
           <View style={styles.info}>
+            <Text style={styles.bookName}>{props.book.bookName}</Text>
+          </View>
+          <View style={styles.info}>
+            <Text style={styles.author}>{props.book.author}</Text>
+          </View>
+          <View style={styles.info}>
             <Image style={styles.infoIcon} source={page_filled_icon} />
             <Text style={styles.infoText}>{props.book.pageNo}</Text>
           </View>
