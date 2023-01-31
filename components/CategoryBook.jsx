@@ -28,21 +28,22 @@ export default function CategoryBook(props) {
               <Text style={styles.infoText}>{props.book.pageNo}</Text>
             </View>
             <View style={styles.info}>
-              <Image style={styles.infoIcon} source={page_filled_icon} />
-              <Text style={styles.infoText}>{props.book.pageNo}</Text>
+              <Image style={styles.infoIcon} source={read_icon} />
+              <Text style={styles.infoText}>{props.book.readed}</Text>
             </View>
           </View>
           <View style={styles.genres}>
-            {props.book.genre.sort().map((genre, index, arr) => (
-              <Text
-                key={index}
-                style={[styles.genre, {
-                  backgroundColor: getGenreColor(genre) + '60',
-                  color: getGenreColor(genre),
-                }]}
-              >
-                {genre}
-              </Text>
+            {props.book.genre.sort().map((genre, index) => (
+              <View key={index} style={[styles.genre, {
+                backgroundColor: getGenreColor(genre) + '60',
+              }]}>
+                <Text
+                  key={index}
+                  style={{ color: getGenreColor(genre) }}
+                >
+                  {genre}
+                </Text>
+              </View>
             ))}
           </View>
         </View>
@@ -83,6 +84,7 @@ const styles = StyleSheet.create({
   info: {
     flexDirection: "row",
     alignItems: "center",
+    marginRight: 8,
   },
   infoIcon: {
     width: 20,

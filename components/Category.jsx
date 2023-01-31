@@ -25,6 +25,6 @@ export default function Category(props) {
 
 const styles = StyleSheet.create({
   category: {
-    marginTop: 16,
+    marginVertical: 16,
   },
 });
