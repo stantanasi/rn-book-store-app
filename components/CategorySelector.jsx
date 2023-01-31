@@ -8,18 +8,31 @@ import {
   ScrollView,
 } from "react-native";
 import { categories } from "../data/categories";
-import { COLORS } from "../constants";
+import { theme } from "../constants";
 
 export default function CategorySelector(props) {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Categories</Text>
-      </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {categories.map((category) => (
-          <Pressable onPress={() => props.changeFn(category.id)}>
-            <Text style={styles.categoryTitle}>{category.categoryName}</Text>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingHorizontal: theme.SIZES.padding }}
+      >
+        {categories.map((category, index) => (
+          <Pressable
+            key={index}
+            onPress={() => props.changeFn(category.id)}
+            style={{ marginStart: index !== 0 ? 24 : 0 }}
+          >
+            <Text
+              style={[styles.categoryTitle, {
+                color: props.categoryId === category.id ?
+                  theme.COLORS.white :
+                  theme.COLORS.lightGray
+              }]}
+            >
+              {category.categoryName}
+            </Text>
           </Pressable>
         ))}
       </ScrollView>
@@ -28,20 +41,12 @@ export default function CategorySelector(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  header: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#123456",
-  },
-  headerTitle: {
-    flex: 1,
-    color: "white",
+  container: {
+    marginTop: 25,
   },
   categoryTitle: {
-    color: COLORS.white,
-    width: 300,
-    fontSize: 50,
+    color: theme.COLORS.lightGray,
+    ...theme.FONTS.h2,
+    fontWeight: 'bold',
   },
 });

@@ -14,7 +14,6 @@ import { COLORS } from "../constants";
 export default function Category(props) {
   return (
     <View style={styles.category}>
-      <Text style={styles.categoryName}>{props.category.categoryName}</Text>
       <ScrollView>
         {props.category.books.map((book, index) => (
           <CategoryBook key={index} book={book} />

@@ -20,18 +20,13 @@ export default function CategorySection(props) {
 
   return (
     <View style={styles.container}>
-      <CategorySelector
-        changeFn={(id) => setCategoryIndex(id)}
-      ></CategorySelector>
-      <Text>{categoryIndex}</Text>
-      <Text>{category.categoryName}</Text>
-      <Category category={category}></Category>
+      <CategorySelector categoryId={categoryIndex} changeFn={(id) => setCategoryIndex(id)} />
+      <Category category={category} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.gray,
   },
 });
