@@ -16,7 +16,7 @@ const getGenreColor = (genre) => {
 
 export default function CategoryBook(props) {
   return (
-    <Pressable>
+    <Pressable style={styles.container}>
       <View style={styles.bookTile}>
         <Image style={styles.bookCover} source={props.book.bookCover} />
         <View style={styles.infoBox}>
@@ -33,13 +33,12 @@ export default function CategoryBook(props) {
             </View>
           </View>
           <View style={styles.genres}>
-            {props.book.genre.sort().map((genre, index) => (
+            {props.book.genre.sort().map((genre, index, arr) => (
               <Text
                 key={index}
                 style={[styles.genre, {
                   backgroundColor: getGenreColor(genre) + '60',
                   color: getGenreColor(genre),
-                  marginStart: index !== 0 ? 10 : 0,
                 }]}
               >
                 {genre}
@@ -53,6 +52,8 @@ export default function CategoryBook(props) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+  },
   bookTile: {
     flexDirection: "row",
   },
@@ -63,11 +64,13 @@ const styles = StyleSheet.create({
   },
   infoBox: {
     padding: 14,
+    flexShrink: 1,
   },
   bookName: {
     color: theme.COLORS.white,
     ...theme.FONTS.h2,
     fontWeight: 'bold',
+    flexShrink: 1,
   },
   author: {
     color: theme.COLORS.lightGray,
@@ -98,5 +101,6 @@ const styles = StyleSheet.create({
   genre: {
     padding: 7,
     borderRadius: 4,
+    margin: 5,
   },
 });

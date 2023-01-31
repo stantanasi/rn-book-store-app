@@ -1,20 +1,15 @@
 import {
   StyleSheet,
-  LogBox,
-  Text,
   View,
   ScrollView,
-  FlatList,
 } from "react-native";
+import { theme } from "../constants";
 import CategoryBook from "./CategoryBook";
-import { myBooks } from "../data/myBooks";
-import { categories } from "../data";
-import { COLORS } from "../constants";
 
 export default function Category(props) {
   return (
     <View style={styles.category}>
-      <ScrollView>
+      <ScrollView contentContainerStyle={{paddingHorizontal: theme.SIZES.padding}}>
         {props.category.books.map((book, index) => (
           <CategoryBook key={index} book={book} />
         ))}
@@ -25,6 +20,6 @@ export default function Category(props) {
 
 const styles = StyleSheet.create({
   category: {
-    margin: 20,
+    marginTop: 16,
   },
 });
